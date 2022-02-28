@@ -145,31 +145,32 @@ async function Stock_Count()
 {
     
     var arrayStockCount=[];
-    arrayStockCount=await StockCount();
+    const data={date:today};
+    arrayStockCount=await StockCount(data);
     var lu=document.getElementById("StockCount");
     lu.innerHTML="";
    
 
     for(var i=0;i<arrayStockCount.length;i++)
     {
-       
+        arrayStockCount[i].AppDate=(arrayStockCount[i].AppDate).replace("T00:00:00.000Z", "");
         var rows=`<tr>
         <td>
             <h2 class="table-avatar">
-                ${arrayStockCount[i].ID}
+                ${arrayStockCount[i].Id_StockCount}
             </h2>
         </td>
-        <td> ${arrayStockCount[i].NameItem}</td>
+        <td> ${arrayStockCount[i].Name_Item}</td>
         <td>
             <h2 class="table-avatar">
-            ${arrayStockCount[i].Quantity_Item}
+            ${arrayStockCount[i].AppDate}
             </h2>
         </td>
-        <td> ${arrayStockCount[i].Sold_Quantity}</span></td>
+        <td> ${arrayStockCount[i].Remaining_Quantity}</span></td>
         <td>
-            $ ${arrayStockCount[i].SalesPrice}
+            $ ${arrayStockCount[i].Sold_Quantity}
         </td>
-        <td >
+        <td>
             $ ${arrayStockCount[i].Actual_Cach_Item}
         </td>
     </tr>`;
@@ -245,11 +246,11 @@ async function INCOME() {
         return output;
 }
 
-async function StockCount() {
+async function StockCount(data) {
     const response=await fetch(`https://apk-restaurant.herokuapp.com/GetStockCount`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify()
+        body:JSON.stringify(data)
     });
     return response.json();
 }
