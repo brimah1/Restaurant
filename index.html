@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Dashboard</title>
+		
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		
+        <script src="https://kit.fontawesome.com/b00cb6e9db.js" crossorigin="anonymous"></script>
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		
+		<!-- Feathericon CSS -->
+        <link rel="stylesheet" href="assets/css/feathericon.min.css">
+		
+		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+		
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    <body id="Load">
+	
+		<!-- Main Wrapper -->
+        <div class="main-wrapper">
+		
+			<!-- Header -->
+            <div class="header">
+			
+				<!-- Logo -->
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+						<img src="assets/img/logo.png" alt="Logo">
+					</a>
+					<a href="index.html" class="logo logo-small">
+						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+					</a>
+                </div>
+				<!-- /Logo -->
+				
+				<a href="javascript:void(0);" id="toggle_btn">
+					<i class="fe fe-text-align-left"></i>
+				</a>
+				
+			
+				
+				<!-- Mobile Menu Toggle -->
+				<a class="mobile_btn" id="mobile_btn">
+					<i class="fa fa-bars"></i>
+				</a>
+				<!-- /Mobile Menu Toggle -->
+				
+				<!-- Header Right Menu -->
+				<ul class="nav user-menu">
+
+					<!-- Notifications -->
+				
+					<!-- /Notifications -->
+					
+					<!-- User Menu -->
+					<li class="nav-item dropdown has-arrow">
+						<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+							<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
+						</a>
+						<div class="dropdown-menu">
+							<div class="user-header">
+								<div class="avatar avatar-sm">
+									<img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+								</div>
+								<div class="user-text">
+									<h6>Brima</h6>
+									<p class="text-muted mb-0">Administrator</p>
+								</div>
+							</div>
+							
+							<a class="dropdown-item" href="login.html">Logout</a>
+						</div>
+					</li>
+					<!-- /User Menu -->
+					
+				</ul>
+				<!-- /Header Right Menu -->
+				
+            </div>
+			<!-- /Header -->
+			
+			<!-- Sidebar -->
+			<div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+					<div id="sidebar-menu" class="sidebar-menu">
+						<ul>
+							<li class="menu-title"> 
+								<span>Main</span>
+							</li>
+							<li class="active"> 
+								<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+							</li>
+							<li > 
+								<a href="MarketExpences.html"><i class="fe fe-layout"></i> <span>Market Expences</span></a>
+							</li>
+							<li> 
+								<a href="Items.html"><i class="fe fe-layer"></i> <span>Items</span></a>
+							</li>
+							<li> 
+								<a href="Expences.html"><i class="fe fe-shopping-bag"></i> <span>Expences</span></a>
+							</li>
+							<li> 
+								<a href="Income.html"><i class="fa-solid fa-circle-dollar-to-slot"></i> <span>Income</span></a>
+							</li>
+							<li> 
+								<a href="ClosingCash.html"><i class="fa-thin fe fe-money"></i> <span>Closing Cash</span></a>
+							</li>
+							<li> 
+								<a href="ActualCash.html"><i class="fe fe-credit-card"></i> <span>Actual Cash</span></a>
+							</li>
+							
+							<li class="submenu">
+								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="invoice.html">Invoice Reports</a></li>
+								</ul>
+							</li>
+							
+							
+						</ul>
+					</div>
+                </div>
+            </div>
+			<!-- /Sidebar -->
+			
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+			
+                <div class="content container-fluid">
+					
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row">
+							<div class="col-sm-12">
+								<h3 class="page-title">Welcome Admin!</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item active">Dashboard</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+
+					<div class="row">
+						<div class="col-xl-3 col-sm-6 col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="dash-widget-header">
+										<span class="dash-widget-icon text-primary border-primary">
+											<i class="fa-solid fa-cash-register" style="color:#019b87;"></i>
+										</span>
+										<div class="dash-count" id="Exp">
+											
+										</div>
+									</div>
+									<div class="dash-widget-info">
+										<h6 class="text-muted">Total Expences</h6>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-primary w-50"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-sm-6 col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="dash-widget-header">
+										<span class="dash-widget-icon text-success">
+											<i class="fa-solid fa-circle-dollar-to-slot"></i>
+										</span>
+										<div class="dash-count" id="Inc">
+											
+										</div>
+									</div>
+									<div class="dash-widget-info">
+										
+										<h6 class="text-muted">Income</h6>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-success w-50"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-sm-6 col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="dash-widget-header">
+										<span class="dash-widget-icon text-danger border-danger">
+											<i class="fe fe-money"></i>
+										</span>
+										<div class="dash-count" id="act">
+											
+										</div>
+									</div>
+									<div class="dash-widget-info">
+										
+										<h6 class="text-muted">Actual Cash</h6>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-danger w-50"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-sm-6 col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="dash-widget-header">
+										<span class="dash-widget-icon text-warning border-warning">
+											<i class="fa-thin fe fe-money"></i>
+										</span>
+										<div class="dash-count" id="clos">
+											
+										</div>
+									</div>
+									<div class="dash-widget-info">
+										
+										<h6 class="text-muted">Closing Cash</h6>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-warning w-50"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6 d-flex">
+						
+							<!-- Recent Orders -->
+							<div class="card card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Items List</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #019b87; color: aliceblue;">
+													<th>ID</th>
+													<th>Name Item</th>
+													<th>Sales Price</th>
+													<th>Quantity</th>
+												</tr>
+											</thead>
+											<tbody id="HomeItems">
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Recent Orders -->
+							
+						</div>
+						<div class="col-md-6 d-flex">
+						
+							<!-- Feed Activity -->
+							<div class="card  card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Market Expences</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #019b87; color: aliceblue;">													
+													<th>Name Item</th>
+													<th>Date</th>
+													<th>Quantity</th>
+													<th>Price</th>													
+												</tr>
+											</thead>
+											<tbody id="MarketExpences">
+											
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Feed Activity -->
+							
+						</div>
+						<div class="col-md-6 d-flex">
+						
+							<!-- Recent Orders -->
+							<div class="card card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Income</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #d17d00; color: aliceblue;">
+													<th>ID</th>
+													<th>Income</th>
+													<th>Date</th>
+													<th>Reason</th>
+												</tr>
+											</thead>
+											<tbody id="INCOME">
+												
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Recent Orders -->
+							
+						</div>
+						<div class="col-md-6 d-flex">
+						
+							<!-- Feed Activity -->
+							<div class="card  card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Expences</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #d17d00; color: aliceblue;">													
+													<th>ID</th>
+													<th>Expence</th>
+													<th>Date</th>
+													<th>Reason</th>													
+												</tr>
+											</thead>
+											<tbody id="Expences">
+											
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Feed Activity -->
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						
+							<!-- Recent Orders -->
+							<div class="card card-table">
+								<div class="card-header">
+									<h4 class="card-title">Actual Cash Item List</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #08d19f; color: aliceblue;">
+													<th>ID</th>
+													<th>Name Items</th>
+													<th>Quantity Items</th>
+													<th>Sold Quantity</th>
+													<th>Sales Price</th>
+													<th>Actual Cash Item</th>
+													
+												</tr>
+											</thead>
+											<tbody id="StockCount">
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Recent Orders -->
+							
+						</div>
+					</div>
+					
+				</div>			
+			</div>
+			<!-- /Page Wrapper -->
+		
+        </div>
+		<!-- /Main Wrapper -->
+		
+		<!-- jQuery -->
+        <script src="assets/js/jquery-3.6.0.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Slimscroll JS -->
+        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		
+		<script src="assets/plugins/raphael/raphael.min.js"></script>    
+
+		
+		<!-- Custom JS -->
+		<script  src="assets/js/script.js"></script>
+		<script  src="assets/js/Dashboard.js"></script>
+    </body>
+</html>
