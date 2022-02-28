@@ -173,7 +173,7 @@ function onpenstock()
         </td>
         <td> ${arrayStockCount[i].Remaining_Quantity}</span></td>
         <td>
-            $ ${arrayStockCount[i].Sold_Quantity}
+            ${arrayStockCount[i].Sold_Quantity}
         </td>
         <td>
             $ ${arrayStockCount[i].Actual_Cach_Item}
