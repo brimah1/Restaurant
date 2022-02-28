@@ -140,13 +140,18 @@ async function Income()
                 lu.innerHTML+=rows;   
     }
 }
-
+var arrayStockCount=[];
 async function Stock_Count()
 {
     
-    var arrayStockCount=[];
+    arrayStockCount=[];
     const data={date:today};
     arrayStockCount=await StockCount(data);
+    onpenstock()
+}
+
+function onpenstock()
+{
     var lu=document.getElementById("StockCount");
     lu.innerHTML="";
    
@@ -176,6 +181,18 @@ async function Stock_Count()
     </tr>`;
                 lu.innerHTML+=rows;   
     }
+}
+
+var el= document.getElementById("myDate")
+if(el){
+    el.addEventListener("change", DateStock);
+}
+
+async function DateStock(){
+    arrayStockCount=[];
+    const data={date:el.value};
+    arrayStockCount=await StockCount(data);
+    onpenstock()
 }
 
 async function dataAmount()
