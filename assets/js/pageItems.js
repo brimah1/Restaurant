@@ -23,11 +23,6 @@ async function displayALLItems(){
             ${arrayItem[i].Quantity_Item}
                 
             </td>
-            <td>
-                
-                $${arrayItem[i].SalesPrice}
-            
-            </td>
             <td class="text-end">
                 
                 ${arrayItem[i].Status}
@@ -63,7 +58,7 @@ async function myAdd(){
 
     var vl=document.getElementsByClassName("form-control");
    
-   const data={Name_Item:vl[0].value,AddDate:today,Quantity_Item:0,SalesPrice:vl[1].value};
+   const data={Name_Item:vl[0].value,AddDate:today,Quantity_Item:0};
    
     AddItems(data).then(response=>{
         window.location='Items.html';
@@ -106,13 +101,13 @@ function MyEdit(id)
     localStorage.removeItem("IDItem");
     localStorage.setItem("IDItem",id);
     var vname=document.getElementById("idname");
-    var vprice=document.getElementById("idprice");
+    
     for(var i=0;arrayItem.length;i++)
     {
         if(arrayItem[i].Id_Item===id){
             
             vname.value=arrayItem[i].Name_Item;
-            vprice.value=arrayItem[i].SalesPrice;
+            
         }
     }
    
@@ -126,7 +121,7 @@ if(edt){
 async function saveEdit(){
     var vl=document.getElementsByClassName("form-control");
    const ID=localStorage.getItem("IDItem");
-    const data={Id_Items:ID,Name_Item:vl[2].value,SalesPrice:vl[3].value};
+    const data={Id_Items:ID,Name_Item:vl[2].value};
     EditItems(data).then(response=>{
         if(response.OK){
            

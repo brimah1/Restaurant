@@ -24,7 +24,6 @@ async function displayHomeItems(){
                     </h2>
                 </td>
                 <td>${arrayItems[i].Name_Item}</td>
-                <td>$${arrayItems[i].SalesPrice}</td>
                 <td>
                 ${arrayItems[i].Quantity_Item}
                 </td>
@@ -33,7 +32,7 @@ async function displayHomeItems(){
             }
              
         }
-    
+        displayHomeMeals();
         MARKETE_Expense();
         Income();
         Stock_Count();
@@ -42,7 +41,33 @@ async function displayHomeItems(){
        window.location='login.html';
    }
 }
-
+async function displayHomeMeals()
+{
+   var arrayMeals = await AllMeals();
+   var lu1=document.getElementById("HomeMeal");
+   lu1.innerHTML="";
+   for(var i=0;i<arrayMeals.length;i++)
+        {
+            if(arrayMeals[i].Status==true){
+                var rows=` <tr>
+                <td>
+                    <h2 class="table-avatar">
+                     ${arrayMeals[i].Id_Meal}
+                    </h2>
+                </td>
+                <td>${arrayMeals[i].Meal}</td>
+                <td>
+                ${arrayMeals[i].Quantity_Meal}
+                </td>
+                <td>
+                ${arrayMeals[i].SalesPrice}
+                </td>
+             </tr>`;
+         lu1.innerHTML+=rows; 
+            }
+             
+        }
+}
 
 async function MARKETE_Expense()
 {
@@ -71,8 +96,40 @@ async function MARKETE_Expense()
      </tr>`;
                 lu.innerHTML+=rows;   
     }
+    MealsAdded();
     Expense();
 }
+
+async function MealsAdded()
+{
+    var arrayMadded=[];
+    const data={appdate:today};
+    arrayMadded=await NumberofMealsAdded(data);
+
+    var lu=document.getElementById("Numberofmeals");
+    lu.innerHTML="";
+   
+
+    for(var i=0;i<arrayMadded.length;i++)
+    {
+        arrayMadded[i].AddDate= (arrayMadded[i].AddDate).replace("T00:00:00.000Z", "");
+
+        var rows=
+    `<tr>
+        <td>${arrayMadded[i].Id_AddMeal}</td>
+        <td>
+            <h2 class="table-avatar">
+            ${arrayMadded[i].Meal}
+            </h2>
+        </td>
+        <td>${arrayMadded[i].AddDate}</td>
+        <td>${arrayMadded[i].Quantity_Meal}</td>
+     </tr>`;
+                lu.innerHTML+=rows;   
+    }
+}
+
+
 async function Expense()
 {
     
@@ -162,21 +219,21 @@ function onpenstock()
         var rows=`<tr>
         <td>
             <h2 class="table-avatar">
-                ${arrayStockCount[i].Id_StockCount}
+                ${arrayStockCount[i].Id_StockCountMeals}
             </h2>
         </td>
-        <td> ${arrayStockCount[i].Name_Item}</td>
+        <td> ${arrayStockCount[i].Meal}</td>
         <td>
             <h2 class="table-avatar">
             ${arrayStockCount[i].AppDate}
             </h2>
         </td>
-        <td> ${arrayStockCount[i].Remaining_Quantity}</span></td>
-        <td>
+        <td class="text-center"> ${arrayStockCount[i].Remaining_Quantity}</span></td>
+        <td class="text-center">
             ${arrayStockCount[i].Sold_Quantity}
         </td>
-        <td>
-            $ ${arrayStockCount[i].Actual_Cach_Item}
+        <td class="text-center">
+            ${arrayStockCount[i].Actual_Cach_Meal}
         </td>
     </tr>`;
                 lu.innerHTML+=rows;   
@@ -216,7 +273,7 @@ async function dataAmount()
         if(response[0]["Closing_cash"]==null)response[0]["Closing_cash"]=0;
 
         var totalE=response[0]["Expense"]+response[0]["MarketExpense"];
-        var actual=response[0]["Actual_Cach"]-totalE;
+        var actual=response[0]["Actual_Cach"];
         if(actual<0)actual=0;
         exp.innerHTML+=`<h3>$${totalE}</h3>`;
         inc.innerHTML+=`<h3>$${response[0]["Income"]}</h3>`;
@@ -238,9 +295,24 @@ async function AllItems() {
         });
         return output;
 }
+async function AllMeals() {
+    var output
+        await $.get("https://apk-restaurant.herokuapp.com/GetAllMeals", await function (data) {
+            output = data
+        });
+        return output;
+}
 
 async function MARKETExp(data) {
     const response=await fetch(`https://apk-restaurant.herokuapp.com/GetMarket`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(data)
+    });
+    return response.json();
+}
+async function NumberofMealsAdded(data) {
+    const response=await fetch(`https://apk-restaurant.herokuapp.com/GetNumberofMealsAdded`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(data)

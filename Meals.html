@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Items</title>
+        <title>Meals</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -107,10 +107,10 @@
 							<li > 
 								<a href="AvailableMeals.html"><i class="fe fe-layout"></i> <span>Available Meals</span></a>
 							</li>
-							<li class="active"> 
+							<li > 
 								<a href="Items.html"><i class="fe fe-layer"></i> <span>Items</span></a>
 							</li>
-							<li> 
+							<li class="active"> 
 								<a href="Meals.html"><i class="fe fe-layer"></i> <span>Meals</span></a>
 							</li>
 							<li> 
@@ -149,10 +149,10 @@
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-7 col-auto">
-								<h3 class="page-title">Items</h3>
+								<h3 class="page-title">Meals</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item active">Items</li>
+									<li class="breadcrumb-item active">Meals</li>
 								</ul>
 							</div>
 							<div class="col-sm-5 col">
@@ -170,13 +170,14 @@
 											<thead>
 												<tr>
 													<th>ID</th>
-													<th>Name Items</th>
+													<th>Name Meals</th>
 													<th>Quantity</th>
+													<th>Sales Price</th>
 													<th class="text-end">Status</th>
 													<th class="text-end">Actions</th>
 												</tr>
 											</thead>
-											<tbody id="items">
+											<tbody id="Meals">
 												
 												
 											</tbody>
@@ -196,7 +197,7 @@
 				<div class="modal-dialog modal-dialog-centered" role="document" >
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Add Item</h5>
+							<h5 class="modal-title">Add Meal</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
@@ -204,12 +205,18 @@
 								<div class="row form-row">
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Name Item</label>
+											<label>Name Meal</label>
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<div class="form-group">
+											<label>Sales Price</label>
 											<input type="text" class="form-control">
 										</div>
 									</div>
 								</div>
-								<button type="button" class="btn btn-primary w-100" id="addItem">Save</button>
+								<button type="button" class="btn btn-primary w-100" id="addMeal">Save</button>
 							</form>
 						</div>
 					</div>
@@ -222,7 +229,7 @@
 				<div class="modal-dialog modal-dialog-centered" role="document" >
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Edit Item</h5>
+							<h5 class="modal-title">Edit Meal</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
@@ -230,12 +237,19 @@
 								<div class="row form-row">
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Name Item</label>
+											<label>Name Meal</label>
 											<input type="text" class="form-control" id="idname">
 										</div>
 									</div>
+									<div class="col-12 col-sm-6">
+										<div class="form-group">
+											<label>Sales Price</label>
+											<input type="text"  class="form-control" id="idprice">
+										</div>
+									</div>
+									
 								</div>
-								<button type="button" class="btn btn-primary w-100" id="editItem">Save Changes</button>
+								<button type="button" class="btn btn-primary w-100" id="editMeal">Save Changes</button>
 							</form>
 						</div>
 					</div>
@@ -277,6 +291,6 @@
 		
 		<!-- Custom JS -->
 		<script  src="assets/js/script.js"></script>
-		<script  src="assets/js/pageItems.js"></script>
+		<script  src="assets/js/Meals.js"></script>
     </body>
 </html>

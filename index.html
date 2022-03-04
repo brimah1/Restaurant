@@ -107,8 +107,14 @@
 							<li > 
 								<a href="MarketExpences.html"><i class="fe fe-layout"></i> <span>Market Expences</span></a>
 							</li>
+							<li > 
+								<a href="AvailableMeals.html"><i class="fe fe-layout"></i> <span>Available Meals</span></a>
+							</li>
 							<li> 
 								<a href="Items.html"><i class="fe fe-layer"></i> <span>Items</span></a>
+							</li>
+							<li> 
+								<a href="Meals.html"><i class="fe fe-layer"></i> <span>Meals</span></a>
 							</li>
 							<li> 
 								<a href="Expences.html"><i class="fe fe-shopping-bag"></i> <span>Expences</span></a>
@@ -248,7 +254,7 @@
 							<!-- Recent Orders -->
 							<div class="card card-table flex-fill">
 								<div class="card-header">
-									<h4 class="card-title">Items List</h4>
+									<h4 class="card-title">Basic materials List</h4>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -257,7 +263,6 @@
 												<tr style="background-color: #019b87; color: aliceblue;">
 													<th>ID</th>
 													<th>Name Item</th>
-													<th>Sales Price</th>
 													<th>Quantity</th>
 												</tr>
 											</thead>
@@ -276,7 +281,7 @@
 							<!-- Feed Activity -->
 							<div class="card  card-table flex-fill">
 								<div class="card-header">
-									<h4 class="card-title">Market Expences</h4>
+									<h4 class="card-title">Market Expenses List</h4>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -290,6 +295,62 @@
 												</tr>
 											</thead>
 											<tbody id="MarketExpences">
+											
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Feed Activity -->
+							
+						</div>
+						<div class="col-md-6 d-flex">
+						
+							<!-- Recent Orders -->
+							<div class="card card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Meals List</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #019b87; color: aliceblue;">
+													<th>ID</th>
+													<th>Name Meal</th>
+													<th>Quantity</th>
+													<th>Sales Price</th>
+												</tr>
+											</thead>
+											<tbody id="HomeMeal">
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- /Recent Orders -->
+							
+						</div>
+						<div class="col-md-6 d-flex">
+						
+							<!-- Feed Activity -->
+							<div class="card  card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Number of meals added</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr style="background-color: #019b87; color: aliceblue;">	
+													<th>ID</th>												
+													<th>Name meal</th>
+													<th>Date</th>
+													<th>Quantity</th>													
+												</tr>
+											</thead>
+											<tbody id="Numberofmeals">
 											
 											</tbody>
 										</table>
@@ -362,12 +423,11 @@
 						
 							<!-- Recent Orders -->
 							<div class="card card-table">
-								<div>
-									<div class="card-header">
-										<h4 class="card-title">Stock count list</h4>
+								
+									<div class="card-header" >
+										<h4 class="card-title">Stock count list </h4>
 									</div>
-									<input type="date" id="myDate" style="margin-top: 6px;margin-bottom: 6px; margin-left: 18px;">
-								</div>
+									<input type="date" id="myDate" style=" margin-left: 86%;">
 								
 								<div class="card-body">
 									<div class="table-responsive">
@@ -377,10 +437,9 @@
 													<th>ID</th>
 													<th>Name Items</th>
 													<th>Date</th>
-													<th>Remaining Quantity</th>
-													<th>Sold Quantity</th>
-													<th>Actual Cash Item</th>
-													
+													<th class="text-center">Remaining Quantity</th>
+													<th class="text-center">Sold Quantity</th>
+													<th class="text-center">Actual Cash</th>
 												</tr>
 											</thead>
 											<tbody id="StockCount">

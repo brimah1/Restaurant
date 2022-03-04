@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Items</title>
+        <title>Available Meals</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 		
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		
+		<script src="https://kit.fontawesome.com/b00cb6e9db.js" crossorigin="anonymous"></script>
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		
@@ -19,7 +19,7 @@
 		
 		<!-- Datatables CSS -->
 		<link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
-		<script src="https://kit.fontawesome.com/b00cb6e9db.js" crossorigin="anonymous"></script>
+		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
 		
@@ -75,10 +75,11 @@
 									<img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 								</div>
 								<div class="user-text">
-									<h6>Brima</h6>
+									<h6>Brimah</h6>
 									<p class="text-muted mb-0">Administrator</p>
 								</div>
 							</div>
+
 							<a class="dropdown-item" href="login.html">Logout</a>
 						</div>
 					</li>
@@ -95,19 +96,20 @@
                 <div class="sidebar-inner slimscroll">
 					<div id="sidebar-menu" class="sidebar-menu">
 						<ul>
+
 							<li class="menu-title"> 
 								<span>Main</span>
 							</li>
 							<li> 
 								<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
-							<li > 
+							<li> 
 								<a href="MarketExpences.html"><i class="fe fe-layout"></i> <span>Market Expences</span></a>
 							</li>
-							<li > 
+							<li class="active"> 
 								<a href="AvailableMeals.html"><i class="fe fe-layout"></i> <span>Available Meals</span></a>
 							</li>
-							<li class="active"> 
+							<li> 
 								<a href="Items.html"><i class="fe fe-layer"></i> <span>Items</span></a>
 							</li>
 							<li> 
@@ -125,7 +127,6 @@
 							<li> 
 								<a href="ActualCash.html"><i class="fe fe-credit-card"></i> <span>Actual Cash</span></a>
 							</li>
-							
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
@@ -133,7 +134,6 @@
 									<li><a href="ReportMarket.html">Market Expences</a></li>
 								</ul>
 							</li>
-							
 							
 						</ul>
 					</div>
@@ -148,117 +148,49 @@
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row">
-							<div class="col-sm-7 col-auto">
-								<h3 class="page-title">Items</h3>
+							<div class="col-sm-12">
+								<h3 class="page-title">Available Meals</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item active">Items</li>
+									<li class="breadcrumb-item active">Available Meals</li>
 								</ul>
-							</div>
-							<div class="col-sm-5 col">
-								<a href="#Add_Specialities_details" data-bs-toggle="modal" class="btn btn-primary float-end mt-2">Add</a>
 							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-md-12">
+						
+							<!-- Recent Orders -->
 							<div class="card">
+								
 								<div class="card-body">
+									<input type="date" id="myDate" style="margin-bottom: 10px;">
 									<div class="table-responsive">
+										
 										<table class="table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>ID</th>
-													<th>Name Items</th>
-													<th>Quantity</th>
-													<th class="text-end">Status</th>
-													<th class="text-end">Actions</th>
+													<th class="text-center">Name</th>
+													<th class="text-center">Date</th>
+													<th class="text-center">Quantity</th>
 												</tr>
 											</thead>
-											<tbody id="items">
-												
+											<tbody id="Available">
 												
 											</tbody>
 										</table>
 									</div>
 								</div>
 							</div>
-						</div>			
+							<!-- /Recent Orders -->
+							
+						</div>
 					</div>
 				</div>			
 			</div>
 			<!-- /Page Wrapper -->
-			
-			
-			<!-- Add Modal -->
-			<div class="modal fade" id="Add_Specialities_details" aria-hidden="true" role="dialog">
-				<div class="modal-dialog modal-dialog-centered" role="document" >
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Add Item</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<div class="row form-row">
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Name Item</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-								</div>
-								<button type="button" class="btn btn-primary w-100" id="addItem">Save</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /ADD Modal -->
-			
-			<!-- Edit Details Modal -->
-			<div class="modal fade" id="edit_specialities_details" aria-hidden="true" role="dialog">
-				<div class="modal-dialog modal-dialog-centered" role="document" >
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Edit Item</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<div class="row form-row">
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Name Item</label>
-											<input type="text" class="form-control" id="idname">
-										</div>
-									</div>
-								</div>
-								<button type="button" class="btn btn-primary w-100" id="editItem">Save Changes</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /Edit Details Modal -->
-			
-			<!-- Delete Modal -->
-			<div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
-				<div class="modal-dialog modal-dialog-centered" role="document" >
-					<div class="modal-content">
-						<div class="modal-body">
-							<div class="form-content p-2">
-								<h4 class="modal-title">Delete</h4>
-								<p class="mb-4">Are you sure want to delete?</p>
-								<button type="button" class="btn btn-primary" id="Idelete" data-bs-dismiss="modal">Save </button>
-								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /Delete Modal -->
+		
         </div>
 		<!-- /Main Wrapper -->
 		
@@ -277,6 +209,7 @@
 		
 		<!-- Custom JS -->
 		<script  src="assets/js/script.js"></script>
-		<script  src="assets/js/pageItems.js"></script>
+		<script  src="assets/js/AvailableMeals.js"></script>
+		
     </body>
 </html>

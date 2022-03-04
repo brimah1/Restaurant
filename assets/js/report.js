@@ -26,10 +26,10 @@ async function displayreport()
         if(arrayreportA[i].Sold_Quantity==null)arrayreportA[i].Sold_Quantity=0;
         var rows=`
         <tr>
-        <td>${arrayreportA[i].NameItem}</td>
+        <td>${arrayreportA[i].NameMeal}</td>
         <td class="d-none d-sm-table-cell">${arrayreportA[i].Remaining_Quantity}</td>
         <td>${arrayreportA[i].Sold_Quantity}</td>
-        <td>$${arrayreportA[i].Actual_Cach_Item}</td>
+        <td>$${arrayreportA[i].Actual_Cach}</td>
         </tr>`;
         t.innerHTML+=rows
     }
@@ -70,7 +70,7 @@ async function displayreport()
 
 //Getdata
 async function Reportdata(data) {
-    const response=await fetch(`https://apk-restaurant.herokuapp.com/GetStockCountDate`,{
+    const response=await fetch(`https://apk-restaurant.herokuapp.com/GetStockCountMeal`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(data)

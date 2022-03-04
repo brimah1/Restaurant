@@ -1,4 +1,4 @@
-var arrayMExp=[];
+var arrayAvailable=[];
 let today = new Date().toISOString().slice(0, 10);
 
 document.getElementById("Load").onload =marketExpence;
@@ -7,35 +7,30 @@ async function marketExpence(){
 
   
     const data={date:today};
-    arrayMExp= await getdateMarketexpense(data);
+    arrayAvailable= await getdateMarketexpense(data);
 
     desplayData();
 }
 
 function desplayData()
 {
-    var mx=document.getElementById("MXP");
+    var mx=document.getElementById("Available");
     mx.innerHTML="";
-    var total=0;
-    for(var i=0;i<arrayMExp.length;i++)
-    { arrayMExp[i].Date= (arrayMExp[i].Date).replace("T00:00:00.000Z", "");
-       total+=arrayMExp[i].Price;
+    for(var i=0;i<arrayAvailable.length;i++)
+    { arrayAvailable[i].Date= (arrayAvailable[i].Date).replace("T00:00:00.000Z", "");
         var rows=`<tr>
-        <td>
+        <td class="text-center">
             <h2>
-                ${arrayMExp[i].Name}
+                ${arrayAvailable[i].Name}
             </h2>
         </td>
-        <td>${arrayMExp[i].Date}</td>
+        <td class="text-center">${arrayAvailable[i].Date}</td>
         
-        <td>${arrayMExp[i].Quantity}</td>
-        <td class="text-end">
-            $${arrayMExp[i].Price}
-        </td>
+        <td class="text-center">${arrayAvailable[i].Quantity}</td>
+       
     </tr>`;
     mx.innerHTML+=rows;
     }
-    document.getElementById("ruselta").innerHTML=total;
 }
 
 var el= document.getElementById("myDate")
@@ -46,14 +41,14 @@ async function myGetnewdata()
 {
     const inputDate=el.value;
     const data={date:inputDate};
-    arrayMExp= await getdateMarketexpense(data);
+    arrayAvailable= await getdateAvailableMeals(data);
 
     desplayData();
 }
 
 //GetData
-async function getdateMarketexpense(data) {
-    const response=await fetch(`https://apk-restaurant.herokuapp.com/GetMarketExpense`,{
+async function getdateAvailableMeals(data) {
+    const response=await fetch(`https://apk-restaurant.herokuapp.com/GetQuntityMeals`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(data)
