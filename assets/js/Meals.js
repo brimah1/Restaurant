@@ -103,12 +103,14 @@ function MyEdit(id)
     localStorage.setItem("IDMeal",id);
     var vname=document.getElementById("idname");
     var vprice=document.getElementById("idprice");
+    var vqntt=document.getElementById("idqntt");
     for(var i=0;arrayMeal.length;i++)
     {
         if(arrayMeal[i].Id_Meal===id){
            
             vname.value=arrayMeal[i].Meal;
             vprice.value=arrayMeal[i].SalesPrice;
+            vqntt.value=arrayMeal[i].Quantity_Meal;
         }
     }
    
@@ -122,7 +124,7 @@ if(edt){
 async function saveEdit(){
     var vl=document.getElementsByClassName("form-control");
     const ID=localStorage.getItem("IDMeal");
-    const data={Id_Meals:ID,Meal:vl[2].value,SalesPrice:vl[3].value};
+    const data={Id_Meals:ID,Meal:vl[2].value,SalesPrice:vl[3].value,Quantity:vl[4].value};
     Editmeals(data).then(response=>{
         if(response.OK){
            
